@@ -277,41 +277,4 @@ class CalculatorView : View("My View") {
     }
 
 
-    // Operator!!! //
-
-    // "+"
-    private fun sum(value1: Double, value2: Double): Double {
-        return value1 + value2
-    }
-
-    // "-"
-    private fun subtract(value1: Double, value2: Double): Double {
-        return value1 - value2
-    }
-
-    // "*"
-    private fun multiply(value1: Double, value2: Double): Double {
-        return value1 * value2
-    }
-
-    // "/"
-    private fun divide(value1: Double, value2: Double): Double {
-        return value1 / value2
-    }
-
-    // "x^2"
-    private fun square(value: Double): Double {
-        return value * value
-    }
-
-    // "sqrt(x)"
-    private fun radical(value: Double): Double {
-        return value.pow(0.5)
-    }
-
-    // "1/x"
-    private fun reverse(value: Double): Double {
-        return 1 / value
-    }
-
 }
