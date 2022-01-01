@@ -48,6 +48,7 @@ class CalculatorView : View("My View") {
             }
             button("CE") {
                 setPrefSize(buttonWidth, buttonHeight)
+                isDisable = true
                 action {
                     value2 = ""
                 }
