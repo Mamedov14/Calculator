@@ -1,9 +1,7 @@
 package com.example.view
 
-import javafx.geometry.Pos
-import javafx.scene.Parent
-import tornadofx.*
-import kotlin.math.pow
+import tornadofx.View
+import tornadofx.borderpane
 
 class MainView : View("Calculator TornadoFX") {
 

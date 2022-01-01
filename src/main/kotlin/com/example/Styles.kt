@@ -9,7 +9,6 @@ import tornadofx.px
 class Styles : Stylesheet() {
     companion object {
         val button by cssclass()
-        val textfield by cssclass()
     }
 
     init {
@@ -18,9 +17,6 @@ class Styles : Stylesheet() {
             backgroundColor += Color.BLACK
             textFill = c("red")
         }
-        textfield {
-            fontSize = 20.px
 
-        }
     }
 }
