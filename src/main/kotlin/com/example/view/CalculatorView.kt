@@ -1,10 +1,16 @@
 package com.example.view
 
 import javafx.beans.property.SimpleStringProperty
+import javafx.scene.paint.Color
+import javafx.scene.text.FontWeight
 import tornadofx.*
 import javax.script.ScriptEngineManager
 
 class CalculatorView : View("My View") {
+
+
+    private val buttonWidth: Double = 75.0
+    private val buttonHeight: Double = 50.0
 
     private var textFieldStringProperty = SimpleStringProperty()
     private var value1: String = ""
@@ -13,33 +19,39 @@ class CalculatorView : View("My View") {
 
 
     override val root = vbox {
-        setPrefSize(500.0, 500.0)
+//        setPrefSize(500.0, 500.0)
 
         // Scene //
         label("Calculator")
         hbox {
             textfield {
-                setPrefSize(200.0, 75.0)
+                setPrefSize(300.0, 75.0)
                 isDisable = true
+                style {
+                    fontWeight = FontWeight.BLACK
+                    backgroundColor += Color.WHITE
+                    textFill = Color.BLACK
+                    fontSize = 20.px
+                }
             }.bind(textFieldStringProperty)
         }
 
         // BOX 1 //
         hbox {
             button("%") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     sign = "%"
                 }
             }
             button("CE") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     value2 = ""
                 }
             }
             button("C") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     value1 = ""
                     value2 = ""
@@ -47,9 +59,10 @@ class CalculatorView : View("My View") {
                 }
             }
             button("Back") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
+                isDisable = true
                 action {
-                    isDisable = true
+
                 }
             }
         }
@@ -57,26 +70,26 @@ class CalculatorView : View("My View") {
         // BOX 2 //
         hbox {
             button("1/x") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     sign = "1/x"
                 }
 
             }
             button("x^2") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     sign = "x^2"
                 }
             }
             button("sqrt(x)") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     sign = "sqrt(x)"
                 }
             }
             button("/") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     sign = "/"
                 }
@@ -86,25 +99,25 @@ class CalculatorView : View("My View") {
         // BOX 3 //
         hbox {
             button("7") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     activeVariant("7")
                 }
             }
             button("8") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     activeVariant("8")
                 }
             }
             button("9") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     activeVariant("9")
                 }
             }
             button("*") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     sign = "*"
                 }
@@ -114,25 +127,25 @@ class CalculatorView : View("My View") {
         // BOX 4 //
         hbox {
             button("4") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     activeVariant("4")
                 }
             }
             button("5") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     activeVariant("5")
                 }
             }
             button("6") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     activeVariant("6")
                 }
             }
             button("-") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     sign = "-"
                 }
@@ -142,25 +155,25 @@ class CalculatorView : View("My View") {
         // BOX 5 //
         hbox {
             button("1") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     activeVariant("1")
                 }
             }
             button("2") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     activeVariant("2")
                 }
             }
             button("3") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     activeVariant("3")
                 }
             }
             button("+") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     sign = "+"
                 }
@@ -170,21 +183,27 @@ class CalculatorView : View("My View") {
         // BOX 6 //
         hbox {
             button("+/-") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
+                action {
 
+                }
+                isDisable = true
             }
             button("0") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     activeVariant("0")
                 }
             }
             button(",") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
+                action {
 
+                }
+                isDisable = true
             }
             button("=") {
-                setPrefSize(50.0, 50.0)
+                setPrefSize(buttonWidth, buttonHeight)
                 action {
                     when (sign) {
                         "+" -> {
