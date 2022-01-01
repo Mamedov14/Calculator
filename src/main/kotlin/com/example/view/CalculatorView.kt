@@ -1,11 +1,14 @@
 package com.example.view
 
+import javafx.beans.property.SimpleStringProperty
+import javafx.scene.control.TextField
 import tornadofx.*
 import javax.script.ScriptEngineManager
 import kotlin.math.pow
 
 class CalculatorView : View("My View") {
 
+    private var textFieldStringProperty = SimpleStringProperty()
     private var value1: String = ""
     private var value2: String = ""
     private var sign: String = ""
@@ -17,7 +20,7 @@ class CalculatorView : View("My View") {
         // Scene //
         label("Calculator")
         hbox {
-            textfield() {
+            textfield {
                 setPrefSize(200.0, 75.0)
                 isDisable = true
             }
@@ -182,59 +185,55 @@ class CalculatorView : View("My View") {
                 action {
                     when (sign) {
                         "+" -> {
-                            println("$value1+$value2=")
-                            var value3 = sum(value1.toDouble(), value2.toDouble())
-                            println(value3)
+                            print("$value1+$value2=")
+                            println(ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2"))
+                            textFieldStringProperty = SimpleStringProperty(
+                                ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2")
+                                    .toString()
+                            )
+                            textfield { }
                             sign = ""
                             value1 = ""
                             value2 = ""
                         }
-
                         "-" -> {
-                            println("$value1-$value2=")
-                            var value3 = subtract(value1.toDouble(), value2.toDouble())
-                            println(value3)
+                            print("$value1-$value2=")
+                            println(ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2"))
                             sign = ""
                             value1 = ""
                             value2 = ""
                         }
                         "*" -> {
-                            println(ScriptEngineManager().getEngineByName("JavaScript").eval("500*(3+2)"))
-                            println("$value1*$value2=")
-                            var value3 = multiply(value1.toDouble(), value2.toDouble())
-                            println(value3)
+                            print("$value1*$value2=")
+                            println(ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2"))
                             sign = ""
                             value1 = ""
                             value2 = ""
                         }
                         "/" -> {
-                            println("$value1/$value2=")
-                            var value3 = divide(value1.toDouble(), value2.toDouble())
-                            println(value3)
+                            print("$value1/$value2=")
+                            println(ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2"))
                             sign = ""
                             value1 = ""
                             value2 = ""
                         }
                         "x^2" -> {
-                            println("$value1^2=")
-                            var value3 = square(value1.toDouble())
-                            println(value3)
+                            print("$value1^2=")
+                            println(ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 * $value1"))
                             sign = ""
                             value1 = ""
                             value2 = ""
                         }
                         "sqrt(x)" -> {
-                            println("sqrt($value1)=")
-                            var value3 = radical(value1.toDouble())
-                            println(value3)
+                            print("sqrt($value1)=")
+                            println(ScriptEngineManager().getEngineByName("JavaScript").eval("Math.sqrt($value1)"))
                             sign = ""
                             value1 = ""
                             value2 = ""
                         }
                         "1/x" -> {
-                            println("1/$value1=")
-                            var value3 = reverse(value1.toDouble())
-                            println(value3)
+                            print("1/$value1=")
+                            println(ScriptEngineManager().getEngineByName("JavaScript").eval("1 / $value1"))
                             sign = ""
                             value1 = ""
                             value2 = ""
@@ -246,7 +245,7 @@ class CalculatorView : View("My View") {
 
     }
 
-    // active course of action //
+    // Active course of action //
 
     private fun activeVariant(variant: String) {
         when (sign) {
@@ -316,4 +315,3 @@ class CalculatorView : View("My View") {
     }
 
 }
-
