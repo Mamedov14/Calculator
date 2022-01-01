@@ -1,10 +1,8 @@
 package com.example.view
 
 import javafx.beans.property.SimpleStringProperty
-import javafx.scene.control.TextField
 import tornadofx.*
 import javax.script.ScriptEngineManager
-import kotlin.math.pow
 
 class CalculatorView : View("My View") {
 
@@ -23,13 +21,16 @@ class CalculatorView : View("My View") {
             textfield {
                 setPrefSize(200.0, 75.0)
                 isDisable = true
-            }
+            }.bind(textFieldStringProperty)
         }
+
         // BOX 1 //
         hbox {
             button("%") {
                 setPrefSize(50.0, 50.0)
-
+                action {
+                    sign = "%"
+                }
             }
             button("CE") {
                 setPrefSize(50.0, 50.0)
@@ -47,7 +48,9 @@ class CalculatorView : View("My View") {
             }
             button("Back") {
                 setPrefSize(50.0, 50.0)
-
+                action {
+                    isDisable = true
+                }
             }
         }
 
@@ -187,62 +190,66 @@ class CalculatorView : View("My View") {
                         "+" -> {
                             print("$value1+$value2=")
                             println(ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2"))
-                            textFieldStringProperty = SimpleStringProperty(
+                            textFieldStringProperty.value =
                                 ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2")
                                     .toString()
-                            )
-                            textfield { }
-                            sign = ""
-                            value1 = ""
-                            value2 = ""
                         }
                         "-" -> {
                             print("$value1-$value2=")
                             println(ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2"))
-                            sign = ""
-                            value1 = ""
-                            value2 = ""
+                            textFieldStringProperty.value =
+                                ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2")
+                                    .toString()
                         }
                         "*" -> {
                             print("$value1*$value2=")
                             println(ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2"))
-                            sign = ""
-                            value1 = ""
-                            value2 = ""
+                            textFieldStringProperty.value =
+                                ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2")
+                                    .toString()
                         }
                         "/" -> {
                             print("$value1/$value2=")
                             println(ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2"))
-                            sign = ""
-                            value1 = ""
-                            value2 = ""
+                            textFieldStringProperty.value =
+                                ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 $sign $value2")
+                                    .toString()
                         }
                         "x^2" -> {
                             print("$value1^2=")
                             println(ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 * $value1"))
-                            sign = ""
-                            value1 = ""
-                            value2 = ""
+                            textFieldStringProperty.value =
+                                ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 * $value1")
+                                    .toString()
                         }
                         "sqrt(x)" -> {
                             print("sqrt($value1)=")
                             println(ScriptEngineManager().getEngineByName("JavaScript").eval("Math.sqrt($value1)"))
-                            sign = ""
-                            value1 = ""
-                            value2 = ""
+                            textFieldStringProperty.value =
+                                ScriptEngineManager().getEngineByName("JavaScript").eval("Math.sqrt($value1)")
+                                    .toString()
                         }
                         "1/x" -> {
                             print("1/$value1=")
                             println(ScriptEngineManager().getEngineByName("JavaScript").eval("1 / $value1"))
-                            sign = ""
-                            value1 = ""
-                            value2 = ""
+                            textFieldStringProperty.value =
+                                ScriptEngineManager().getEngineByName("JavaScript").eval("1 / $value1")
+                                    .toString()
+                        }
+                        "%" -> {
+                            print("$value1%$value2=")
+                            println(ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 / $value2 * 100"))
+                            textFieldStringProperty.value =
+                                ScriptEngineManager().getEngineByName("JavaScript").eval("$value1 / $value2 * 100")
+                                    .toString()
                         }
                     }
+                    sign = ""
+                    value1 = ""
+                    value2 = ""
                 }
             }
         }
-
     }
 
     // Active course of action //
@@ -270,11 +277,13 @@ class CalculatorView : View("My View") {
             "1/x" -> {
                 value2 += variant
             }
+            "%" -> {
+                value2 += variant
+            }
             else -> {
                 value1 += variant
             }
         }
     }
-
 
 }
