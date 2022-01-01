@@ -22,7 +22,6 @@ class CalculatorView : View("My View") {
                 isDisable = true
             }
         }
-
         // BOX 1 //
         hbox {
             button("%") {
@@ -83,94 +82,19 @@ class CalculatorView : View("My View") {
             button("7") {
                 setPrefSize(50.0, 50.0)
                 action {
-                    when (sign) {
-                        "+" -> {
-                            value2 += "7"
-                        }
-                        "-" -> {
-                            value2 += "7"
-                        }
-                        "*" -> {
-                            value2 += "7"
-                        }
-                        "/" -> {
-                            value2 += "7"
-                        }
-                        "x^2" -> {
-                            value2 += "7"
-                        }
-                        "sqrt(x)" -> {
-                            value2 += "7"
-                        }
-                        "1/x" -> {
-                            value2 += "7"
-                        }
-                        else -> {
-                            value1 += "7"
-                        }
-                    }
+                    activeVariant("7")
                 }
             }
             button("8") {
                 setPrefSize(50.0, 50.0)
                 action {
-                    when (sign) {
-                        "+" -> {
-                            value2 += "8"
-                        }
-                        "-" -> {
-                            value2 += "8"
-                        }
-                        "*" -> {
-                            value2 += "8"
-                        }
-                        "/" -> {
-                            value2 += "8"
-                        }
-                        "x^2" -> {
-                            value2 += "8"
-                        }
-                        "sqrt(x)" -> {
-                            value2 += "8"
-                        }
-                        "1/x" -> {
-                            value2 += "8"
-                        }
-                        else -> {
-                            value1 += "8"
-                        }
-                    }
+                    activeVariant("8")
                 }
             }
             button("9") {
                 setPrefSize(50.0, 50.0)
                 action {
-                    when (sign) {
-                        "+" -> {
-                            value2 += "9"
-                        }
-                        "-" -> {
-                            value2 += "9"
-                        }
-                        "*" -> {
-                            value2 += "9"
-                        }
-                        "/" -> {
-                            value2 += "9"
-                        }
-                        "x^2" -> {
-                            value2 += "9"
-                        }
-                        "sqrt(x)" -> {
-                            value2 += "9"
-                        }
-                        "1/x" -> {
-                            value2 += "9"
-                        }
-                        else -> {
-                            value1 += "9"
-                        }
-                    }
+                    activeVariant("9")
                 }
             }
             button("*") {
@@ -186,94 +110,19 @@ class CalculatorView : View("My View") {
             button("4") {
                 setPrefSize(50.0, 50.0)
                 action {
-                    when (sign) {
-                        "+" -> {
-                            value2 += "4"
-                        }
-                        "-" -> {
-                            value2 += "4"
-                        }
-                        "*" -> {
-                            value2 += "4"
-                        }
-                        "/" -> {
-                            value2 += "4"
-                        }
-                        "x^2" -> {
-                            value2 += "4"
-                        }
-                        "sqrt(x)" -> {
-                            value2 += "4"
-                        }
-                        "1/x" -> {
-                            value2 += "4"
-                        }
-                        else -> {
-                            value1 += "4"
-                        }
-                    }
+                    activeVariant("4")
                 }
             }
             button("5") {
                 setPrefSize(50.0, 50.0)
                 action {
-                    when (sign) {
-                        "+" -> {
-                            value2 += "5"
-                        }
-                        "-" -> {
-                            value2 += "5"
-                        }
-                        "*" -> {
-                            value2 += "5"
-                        }
-                        "/" -> {
-                            value2 += "5"
-                        }
-                        "x^2" -> {
-                            value2 += "5"
-                        }
-                        "sqrt(x)" -> {
-                            value2 += "5"
-                        }
-                        "1/x" -> {
-                            value2 += "5"
-                        }
-                        else -> {
-                            value1 += "5"
-                        }
-                    }
+                    activeVariant("5")
                 }
             }
             button("6") {
                 setPrefSize(50.0, 50.0)
                 action {
-                    when (sign) {
-                        "+" -> {
-                            value2 += "6"
-                        }
-                        "-" -> {
-                            value2 += "6"
-                        }
-                        "*" -> {
-                            value2 += "6"
-                        }
-                        "/" -> {
-                            value2 += "6"
-                        }
-                        "x^2" -> {
-                            value2 += "6"
-                        }
-                        "sqrt(x)" -> {
-                            value2 += "6"
-                        }
-                        "1/x" -> {
-                            value2 += "6"
-                        }
-                        else -> {
-                            value1 += "6"
-                        }
-                    }
+                    activeVariant("6")
                 }
             }
             button("-") {
@@ -289,94 +138,19 @@ class CalculatorView : View("My View") {
             button("1") {
                 setPrefSize(50.0, 50.0)
                 action {
-                    when (sign) {
-                        "+" -> {
-                            value2 += "1"
-                        }
-                        "-" -> {
-                            value2 += "1"
-                        }
-                        "*" -> {
-                            value2 += "1"
-                        }
-                        "/" -> {
-                            value2 += "1"
-                        }
-                        "x^2" -> {
-                            value2 += "1"
-                        }
-                        "sqrt(x)" -> {
-                            value2 += "1"
-                        }
-                        "1/x" -> {
-                            value2 += "1"
-                        }
-                        else -> {
-                            value1 += "1"
-                        }
-                    }
+                    activeVariant("1")
                 }
             }
             button("2") {
                 setPrefSize(50.0, 50.0)
                 action {
-                    when (sign) {
-                        "+" -> {
-                            value2 += "2"
-                        }
-                        "-" -> {
-                            value2 += "2"
-                        }
-                        "*" -> {
-                            value2 += "2"
-                        }
-                        "/" -> {
-                            value2 += "2"
-                        }
-                        "x^2" -> {
-                            value2 += "2"
-                        }
-                        "sqrt(x)" -> {
-                            value2 += "2"
-                        }
-                        "1/x" -> {
-                            value2 += "2"
-                        }
-                        else -> {
-                            value1 += "2"
-                        }
-                    }
+                    activeVariant("2")
                 }
             }
             button("3") {
                 setPrefSize(50.0, 50.0)
                 action {
-                    when (sign) {
-                        "+" -> {
-                            value2 += "3"
-                        }
-                        "-" -> {
-                            value2 += "3"
-                        }
-                        "*" -> {
-                            value2 += "3"
-                        }
-                        "/" -> {
-                            value2 += "3"
-                        }
-                        "x^2" -> {
-                            value2 += "3"
-                        }
-                        "sqrt(x)" -> {
-                            value2 += "3"
-                        }
-                        "1/x" -> {
-                            value2 += "3"
-                        }
-                        else -> {
-                            value1 += "3"
-                        }
-                    }
+                    activeVariant("3")
                 }
             }
             button("+") {
@@ -396,32 +170,7 @@ class CalculatorView : View("My View") {
             button("0") {
                 setPrefSize(50.0, 50.0)
                 action {
-                    when (sign) {
-                        "+" -> {
-                            value2 += "0"
-                        }
-                        "-" -> {
-                            value2 += "0"
-                        }
-                        "*" -> {
-                            value2 += "0"
-                        }
-                        "/" -> {
-                            value2 += "0"
-                        }
-                        "x^2" -> {
-                            value2 += "0"
-                        }
-                        "sqrt(x)" -> {
-                            value2 += "0"
-                        }
-                        "1/x" -> {
-                            value2 += "0"
-                        }
-                        else -> {
-                            value1 += "0"
-                        }
-                    }
+                    activeVariant("0")
                 }
             }
             button(",") {
@@ -496,6 +245,38 @@ class CalculatorView : View("My View") {
         }
 
     }
+
+    // active course of action //
+
+    private fun activeVariant(variant: String) {
+        when (sign) {
+            "+" -> {
+                value2 += variant
+            }
+            "-" -> {
+                value2 += variant
+            }
+            "*" -> {
+                value2 += variant
+            }
+            "/" -> {
+                value2 += variant
+            }
+            "x^2" -> {
+                value2 += variant
+            }
+            "sqrt(x)" -> {
+                value2 += variant
+            }
+            "1/x" -> {
+                value2 += variant
+            }
+            else -> {
+                value1 += variant
+            }
+        }
+    }
+
 
     // Operator!!! //
 
